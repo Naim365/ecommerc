@@ -3,6 +3,8 @@ import Image from "next/image";
 import Currency from "react-currency-formatter";
 import { useDispatch } from "react-redux";
 import {addToBasket, removeFromBasket} from "../slices/basketSlice";
+import {useRouter} from "next/router";
+
 
 function CheckoutProduct({
     id, 
@@ -38,6 +40,10 @@ function CheckoutProduct({
 
         //Remove item from redux
         dispatch(removeFromBasket({ id }))
+
+    };
+
+    const addLogoBasket =() => {
 
     }
     return (
@@ -81,8 +87,11 @@ function CheckoutProduct({
 
             <div className="flex flex-col space-y-2 mx-auto justify-self-end">
                 <button className="button" onClick={addItemToBasket}>Add to Basket</button>
+                <button className="button" onClick={() => router.push('/addlogo.js')}>Add your Logo</button>
                 <button className="button" onClick={removeItemFromBasket}>Remove from Basket</button>
             </div>
+        
+        
         </div>
     )
 }
